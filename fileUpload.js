@@ -1,8 +1,3 @@
-/**
- * A directive to manage file upload in an AngularJS application
- *
- * http://blog.brunoscopelliti.com/a-directive-to-manage-file-upload-in-an-angularjs-application
- */
 directives.directive('fileUpload', [function() {
 	return {
 		restrict: 'EA',
