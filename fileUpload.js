@@ -1,3 +1,8 @@
+/**
+ * A directive to manage file upload in an AngularJS application
+ *
+ * http://blog.brunoscopelliti.com/a-directive-to-manage-file-upload-in-an-angularjs-application
+ */
 directives.directive('fileUpload', [function() {
 	return {
 		restrict: 'EA',
@@ -5,14 +10,16 @@ directives.directive('fileUpload', [function() {
 		scope: {
 			action: '@',
 			btnLabel: '@',
-			btnClasses: '@',
+			btnClass: '@',
 			inputName: '@',
+			progressClass: '@',
 			onSuccess: '&'
 		},
 		link: function(scope, elem, attrs, ctrl) {
 			attrs.btnLabel = attrs.btnLabel || "Choose File";
 			attrs.inputName = attrs.inputName || "file";
-			attrs.btnClasses = attrs.btnClasses || "btn";
+			attrs.btnClass = attrs.btnClass || "btn";
+			attrs.progressClass = attrs.progressClass || "btn";
 
 			elem.find('.fake-uploader').click(function() {
 				elem.find('input[type="file"]').click();
@@ -29,12 +36,13 @@ directives.directive('fileUpload', [function() {
 					onchange='angular.element(this).scope().sendFile(this);'/> \
 				<div class='btn-group'> \
 					<button \
-						class='{{ btnClasses }} fake-uploader' \
+						class='{{ btnClass }} fake-uploader' \
 						type='button' \
 						readonly='readonly' \
 						ng-model='avatar'>{{ btnLabel }}</button> \
 					<button \
-						class='btn disabled' \
+						disabled \
+						class='{{ progressClass }}' \
 						ng-class='{ \"btn-primary\": progress < 100, \"btn-success\": progress == 100 }' \
 						ui-if=\"progress > 0\">{{ progress }}%</button>\
 				</div> \
@@ -45,8 +53,6 @@ directives.directive('fileUpload', [function() {
 			$scope.avatar = '';
 
 			$scope.sendFile = function(el) {
-				console.info(el)
-
 				var $form = $(el).parents('form');
 
 				if ($(el).val() == '') {
