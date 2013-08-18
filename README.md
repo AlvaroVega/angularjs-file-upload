@@ -39,8 +39,6 @@ $scope.serieImageUploaded = function (resp) {
 
 **Example**
 
-*demo coming soon*
-
 ![enter image description here][1]
 
 
