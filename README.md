@@ -15,4 +15,8 @@ Easy file upload with simple progress.
 ![enter image description here][1]
 
 
+[Based on: **A directive to manage file upload in an AngularJS application**][2]
+
+
   [1]: http://i.imgur.com/dgxHQqE.png
+  [2]: http://blog.brunoscopelliti.com/a-directive-to-manage-file-upload-in-an-angularjs-application
