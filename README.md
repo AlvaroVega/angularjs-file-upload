@@ -15,12 +15,24 @@ Easy file upload with simple progress.
 **Usage**
 
 ```html
+// view.html
 <div
   file-upload
-  btn-label="Choose Banner Tile Image"
-  input-name="banner_tile_image"
-  on-success='test(responseText)'
-  action='/api/v1/serie/image/{{ main.serie.id }}'></div>
+  action='/api/v1/serie/image/{{ main.serie.id }}'
+  btn-class='btn btn-small'
+  btn-label="Choose Image"
+  input-name="image"
+  on-success='serieImageUploaded(responseText)'
+  progress-class='btn btn-small'></div>
+```
+
+```js
+// ctrl.js
+$scope.serieImageUploaded = function (resp) {
+  var data = angular.fromJson(resp);
+  $scope.main.serie.image = data.serie.image;
+  $scope.main.serie.banner_tile_image = data.serie.banner_tile_image;
+}
 ```
 
 ----------
