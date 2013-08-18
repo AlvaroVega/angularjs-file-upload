@@ -3,6 +3,17 @@ angularjs-file-upload
 
 Easy file upload with simple progress.
 
+----------
+
+**Dependencies**
+
+ - jquery.form.js
+ - jquery.js
+
+----------
+
+**Usage**
+
 ```html
 <div
   file-upload
@@ -12,10 +23,20 @@ Easy file upload with simple progress.
   action='/api/v1/serie/image/{{ main.serie.id }}'></div>
 ```
 
+----------
+
+**Example**
+
+*demo coming soon*
+
 ![enter image description here][1]
 
 
-[Based on: **A directive to manage file upload in an AngularJS application**][2]
+----------
+
+**Credits**
+
+  - [**A directive to manage file upload in an AngularJS application**][2]
 
 
   [1]: http://i.imgur.com/dgxHQqE.png
