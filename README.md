@@ -15,7 +15,7 @@ Easy file upload with simple progress.
 **Usage**
 
 ```html
-// view.html
+<!-- view.html -->
 <div
   file-upload
   action='/api/v1/serie/image/{{ main.serie.id }}'
