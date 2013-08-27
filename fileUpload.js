@@ -97,9 +97,9 @@ directives.directive('fileUpload', [function() {
 								xhr: xhr,
 								form: form,
 							});
+	
+							$scope.progress = 0;
 						});
-
-						$scope.progress = 0;
 					},
 				});
 			}
