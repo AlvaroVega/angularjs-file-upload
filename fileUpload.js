@@ -9,6 +9,7 @@ directives.directive('fileUpload', [function() {
 			inputName: '@',
 			progressClass: '@',
 			onSuccess: '&'
+                        onError: '&'
 		},
 		link: function(scope, elem, attrs, ctrl) {
 			attrs.btnLabel = attrs.btnLabel || "Choose File";
@@ -23,6 +24,7 @@ directives.directive('fileUpload', [function() {
 		template: "<form \
 			style='margin: 0;' \
 			enctype='multipart/form-data'> \
+                        method='POST' \
 			<div class='uploader'> \
 				<input \
 					type='file' \
@@ -62,6 +64,7 @@ directives.directive('fileUpload', [function() {
 
 				$form.ajaxSubmit({
 					type: 'POST',
+                                        dataType: 'json',
 					uploadProgress: function(event, position, total, percentComplete) {
 
 						$scope.$apply(function() {
